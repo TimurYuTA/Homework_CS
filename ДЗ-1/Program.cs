@@ -67,16 +67,41 @@
 
 // Задача 1. Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа
 
-Console.Write("Введите трёхзначное число: " );
-int number = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите трёхзначное число: " );
+// int number = Convert.ToInt32(Console.ReadLine());
 
-if (number > -1000 & number < -99 ^ number > 99 & number < 1000 ){
-    int tens = number % 100 / 10;
-    if (tens < 0){
-        tens = tens * -1;
-    }
-    Console.Write("Вторая цифра числа " + number + " -> " + tens);
+// if (number > -1000 & number < -99 ^ number > 99 & number < 1000 ){
+//     int tens = number % 100 / 10;
+//     if (tens < 0){
+//         tens = tens * -1;
+//     }
+//     Console.Write("Вторая цифра числа " + number + " -> " + tens);
+// }
+// else{
+//     Console.Write("Число " + number + " не является трёхзначным!");
+// }
+
+
+// Задача 2. Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет
+
+Console.Write("Введите число: " );
+int number = Convert.ToInt32(Console.ReadLine());
+int numberOrig = number;
+int thousand = number;
+
+if (number < 0){
+    number = number * -1;
+    thousand = number;
+}
+
+while (thousand > 999){
+    number = number / 10;
+    thousand = number;
+}
+if (number < 100){
+    Console.WriteLine("В числе " + numberOrig + " третьей цифры нет!");
 }
 else{
-    Console.Write("Число " + number + " не является трёхзначным!");
+    int third = thousand % 10;
+    Console.WriteLine("Третья цифра числа " + numberOrig + " -> " + third);
 }
