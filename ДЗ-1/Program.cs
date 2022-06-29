@@ -84,24 +84,42 @@
 
 // Задача 2. Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет
 
-Console.Write("Введите число: " );
-int number = Convert.ToInt32(Console.ReadLine());
-int numberOrig = number;
-int thousand = number;
+// Console.Write("Введите число: " );
+// int number = Convert.ToInt32(Console.ReadLine());
+// int numberOrig = number;
+// int thousand = number;
 
-if (number < 0){
-    number = number * -1;
-    thousand = number;
-}
+// if (number < 0){
+//     number = number * -1;
+//     thousand = number;
+// }
 
-while (thousand > 999){
-    number = number / 10;
-    thousand = number;
-}
-if (number < 100){
-    Console.WriteLine("В числе " + numberOrig + " третьей цифры нет!");
-}
-else{
-    int third = thousand % 10;
-    Console.WriteLine("Третья цифра числа " + numberOrig + " -> " + third);
-}
+// while (thousand > 999){
+//     number = number / 10;
+//     thousand = number;
+// }
+// if (number < 100){
+//     Console.WriteLine("В числе " + numberOrig + " - третьей цифры нет!");
+// }
+// else{
+//     int third = thousand % 10;
+//     Console.WriteLine("Третья цифра числа " + numberOrig + " -> " + third);
+// }
+
+
+// Задача 3. Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным
+
+// Console.Write("Введите номер дня недели (ПН-1 ... ВС-7): " );
+// int number = Convert.ToInt32(Console.ReadLine());
+
+// if (number < 1 ^ number > 7){
+//     Console.Write("Вы ввели некорректный номер");
+// }
+// else{
+//     if (number < 6){
+//         Console.Write(number + "-й день - Эх... он не является выходным...");
+//     }
+//     if (number > 5){
+//         Console.Write(number + "-й день - Ура! Это выходной!");
+//     }
+// }
