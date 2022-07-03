@@ -123,3 +123,28 @@
 //         Console.Write(number + "-й день - Ура! Это выходной!");
 //     }
 // }
+
+
+// ДЗ-3
+
+// Задача 1. Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
+
+Console.Write("Введите пятизначное число: " );
+int number = Convert.ToInt32(Console.ReadLine());
+
+int first = number / 10000;
+int second = number / 1000 % 10;
+int fourth = number / 10 % 10;
+int fifth = number % 10;
+
+if (number > 9999 & number < 100000){
+    if (first == fifth & second == fourth){
+        Console.Write($"{number} -> да, введенное число является палиндромом");
+    }
+    else{
+        Console.Write($"{number} -> нет, введенное число не является палиндромом");
+    }        
+}
+else{
+    Console.Write($"Число {number} не является пятизначным");
+}
