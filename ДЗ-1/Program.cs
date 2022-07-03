@@ -129,22 +129,47 @@
 
 // Задача 1. Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
 
-Console.Write("Введите пятизначное число: " );
-int number = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите пятизначное число: " );
+// int number = Convert.ToInt32(Console.ReadLine());
 
-int first = number / 10000;
-int second = number / 1000 % 10;
-int fourth = number / 10 % 10;
-int fifth = number % 10;
+// int first = number / 10000;
+// int second = number / 1000 % 10;
+// int fourth = number / 10 % 10;
+// int fifth = number % 10;
 
-if (number > 9999 & number < 100000){
-    if (first == fifth & second == fourth){
-        Console.Write($"{number} -> да, введенное число является палиндромом");
-    }
-    else{
-        Console.Write($"{number} -> нет, введенное число не является палиндромом");
-    }        
+// if (number > 9999 & number < 100000){
+//     if (first == fifth & second == fourth){
+//         Console.Write($"{number} -> да, введенное число является палиндромом");
+//     }
+//     else{
+//         Console.Write($"{number} -> нет, введенное число не является палиндромом");
+//     }        
+// }
+// else{
+//     Console.Write($"Число {number} не является пятизначным");
+// }
+
+
+// Задача 2. Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве
+
+double distance3D (int x1, int y1, int z1, int x2, int y2, int z2){
+    return Math.Sqrt ((x1 - x2)*(x1 - x2) + (y1 - y2)*(y1 - y2) + (z1 - z2)*(z1 - z2));
 }
-else{
-    Console.Write($"Число {number} не является пятизначным");
-}
+
+Console.WriteLine("Введите координаты первой точки - A:");
+Console.Write("Ax = ");
+int Ax = Convert.ToInt32(Console.ReadLine());
+Console.Write("Ay = ");
+int Ay = Convert.ToInt32(Console.ReadLine());
+Console.Write("Az = ");
+int Az = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Введите координаты второй точки - B:");
+Console.Write("Bx = ");
+int Bx = Convert.ToInt32(Console.ReadLine());
+Console.Write("By = ");
+int By = Convert.ToInt32(Console.ReadLine());
+Console.Write("Bz = ");
+int Bz = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine($"Растояние между точкми A и B равно: {Math.Round(distance3D(Ax, Ay, Az, Bx, By, Bz), 2)}");
