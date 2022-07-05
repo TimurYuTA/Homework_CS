@@ -221,22 +221,64 @@
 
 // Задача 2. Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе
 
-int sumN (int N)
+// int sumN (int N)
+// {
+//     int partN = N;
+//     int sum = 0;
+//     while (N > 9)
+//     {
+//         partN = N % 10;
+//         sum = sum + partN;
+//         N = N / 10;
+//     }
+//     sum = sum + N;
+//     return sum;
+// }
+
+// Console.Clear();
+// Console.Write("Введите число: ");
+// int number = Convert.ToInt32(Console.ReadLine());
+
+// Console.WriteLine($"Сумма цифр числа {number} равна -> {sumN(number)}");
+
+
+// Задача 3. Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран
+
+int[] CreateArray (int N, int start, int end)
 {
-    int partN = N;
-    int sum = 0;
-    while (N > 9)
+    int[] Array = new int[N];
+    for (int i = 0; i < N; i++)
     {
-        partN = N % 10;
-        sum = sum + partN;
-        N = N / 10;
+        Array[i] = new Random().Next(start, end + 1);
     }
-    sum = sum + N;
-    return sum;
+    return Array;
+}  
+
+void ShowArray (int[] myArray)
+{
+    int i = 0;
+    for (i = 0; i < myArray.Length - 1 ; i++)
+    {
+        Console.Write(myArray[i] + ", ");
+        
+    }
+    if (i == myArray.Length - 1)
+        {
+            Console.Write(myArray[i]);
+        }
+    Console.WriteLine("]");
 }
 
 Console.Clear();
-Console.Write("Введите число: ");
+Console.Write("Введите количество элементов в массиве: ");
 int number = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Укажите диапазон чисел для генерации элементов в массиве");
+Console.Write("Введите начало диапазона: ");
+int min = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите конец диапазона: ");
+int max = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine($"Сумма цифр числа {number} равна -> {sumN(number)}");
+int[] myRandomArray = CreateArray(number, min, max);
+
+Console.Write($"Сгенерированный массив из {number} элементов -> [");
+ShowArray(myRandomArray);
