@@ -194,26 +194,49 @@
 // }
 
 
+
 // ДЗ-4
 
 // Задача 1. Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B
 
-double natPow (int i, int power){
-    return Math.Pow (i, power);
-}
-Console.Clear();
-Console.Write("Введите необходимое количество повторений: ");
-int repeat = Convert.ToInt32(Console.ReadLine());
+// double natPow (int i, int power){
+//     return Math.Pow (i, power);
+// }
+// Console.Clear();
+// Console.Write("Введите необходимое количество повторений: ");
+// int repeat = Convert.ToInt32(Console.ReadLine());
 
-for (int i = 0; i < repeat; i++)
+// for (int i = 0; i < repeat; i++)
+// {
+//     Console.Write("Введите число A: ");
+//     int A = Convert.ToInt32(Console.ReadLine());
+
+//     Console.Write("Введите степень B: ");
+//     int B = Convert.ToInt32(Console.ReadLine());
+
+//     Console.WriteLine($"Число {A} в натуральной степени {B} -> {natPow(A, B)}");
+//     Console.WriteLine("----------------------------------");
+// }
+
+
+// Задача 2. Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе
+
+int sumN (int N)
 {
-    Console.Write("Введите число A: ");
-    int A = Convert.ToInt32(Console.ReadLine());
-
-    Console.Write("Введите степень B: ");
-    int B = Convert.ToInt32(Console.ReadLine());
-
-    Console.WriteLine($"Число {A} в натуральной степени {B} -> {natPow(A, B)}");
-    Console.WriteLine("----------------------------------");
+    int partN = N;
+    int sum = 0;
+    while (N > 9)
+    {
+        partN = N % 10;
+        sum = sum + partN;
+        N = N / 10;
+    }
+    sum = sum + N;
+    return sum;
 }
 
+Console.Clear();
+Console.Write("Введите число: ");
+int number = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine($"Сумма цифр числа {number} равна -> {sumN(number)}");
