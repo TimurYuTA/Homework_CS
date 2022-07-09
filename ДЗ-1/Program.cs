@@ -350,13 +350,3 @@ ShowArray(Array);
 Console.Write($" -> {count}");
 
 
-
-
-// Console.Clear();
-// Console.Write("Введите количество элементов в массиве: ");
-// int number = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine("Введите диапазон для создания массива в пределах от 100 до 1000");
-// Console.Write("Введите начало диапазона: ");
-// int min = Convert.ToInt32(Console.ReadLine());
-// Console.Write("Введите конец диапазона: ");
-// int max = Convert.ToInt32(Console.ReadLine());
