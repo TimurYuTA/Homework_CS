@@ -244,41 +244,119 @@
 
 // Задача 3. Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран
 
-int[] CreateArray (int N, int start, int end)
-{
+// int[] CreateArray (int N, int start, int end)
+// {
+//     int[] Array = new int[N];
+//     for (int i = 0; i < N; i++)
+//     {
+//         Array[i] = new Random().Next(start, end + 1);
+//     }
+//     return Array;
+// }  
+
+// void ShowArray (int[] myArray)
+// {
+//     Console.Write("[");
+//     for (int i = 0; i < myArray.Length; i++){
+//         Console.Write(myArray[i]);
+//         if (i < myArray.Length - 1){
+//             Console.Write(", ");
+//         }
+//     }
+//     Console.WriteLine("]");
+// }
+
+// Console.Clear();
+// Console.Write("Введите количество элементов в массиве: ");
+// int number = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Укажите диапазон чисел для генерации элементов в массиве");
+// Console.Write("Введите начало диапазона: ");
+// int min = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите конец диапазона: ");
+// int max = Convert.ToInt32(Console.ReadLine());
+
+// int[] myRandomArray = CreateArray(number, min, max);
+
+// Console.Write($"Сгенерированный массив из {number} элементов -> ");
+// ShowArray(myRandomArray);
+
+
+// ДЗ-5
+
+// Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
+// [345, 897, 568, 234] -> 2
+
+// Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+// [3, 7, 23, 12] -> 19
+// [-4, -6, 89, 6] -> 0
+
+// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+// [3 7 22 2 78] -> 76
+
+
+// Задача 1. Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
+// [345, 897, 568, 234] -> 2
+
+int[] CreateArray(int N, int start, int end){
     int[] Array = new int[N];
-    for (int i = 0; i < N; i++)
-    {
+    for (int i = 0; i < Array.Length; i++){
         Array[i] = new Random().Next(start, end + 1);
     }
     return Array;
-}  
-
-void ShowArray (int[] myArray)
-{
-    int i = 0;
-    for (i = 0; i < myArray.Length - 1 ; i++)
-    {
-        Console.Write(myArray[i] + ", ");
-        
-    }
-    if (i == myArray.Length - 1)
-        {
-            Console.Write(myArray[i]);
+}
+void ShowArray(int[] Array){
+    Console.Write("[");
+    for (int i = 0; i < Array.Length; i++){
+        Console.Write(Array[i]);
+        if (i < Array.Length - 1){
+            Console.Write(", ");
         }
-    Console.WriteLine("]");
+    }
+    Console.Write("]");
+}
+int[] inputArray(){
+    Console.Clear();
+    Console.Write("Введите количество элементов в массиве: ");
+    int number = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите диапазон для создания массива в пределах от 100 до 999");
+    Console.Write("Введите начало диапазона: ");
+    int min = Convert.ToInt32(Console.ReadLine());
+    if (min < 100 || min > 999){
+        Console.WriteLine("Ошибка! Диапазон для создания массива должен быть в пределах от 100 до 999");
+        Console.Write("Введите начало диапазона: ");
+        min = Convert.ToInt32(Console.ReadLine());
+    }
+    Console.Write("Введите конец диапазона: ");
+    int max = Convert.ToInt32(Console.ReadLine());
+    if (max < 100 || max > 999 || max < min){
+        Console.WriteLine("Ошибка! Диапазон для создания массива должен быть в пределах от 100 до 999. Значение конца диапазона не должно быть меньше его начала!");
+        Console.Write("Введите конец диапазона: ");
+        max = Convert.ToInt32(Console.ReadLine());
+    }
+    int[] ArrayIn = {number, min, max};
+    return ArrayIn;
 }
 
-Console.Clear();
-Console.Write("Введите количество элементов в массиве: ");
-int number = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Укажите диапазон чисел для генерации элементов в массиве");
-Console.Write("Введите начало диапазона: ");
-int min = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите конец диапазона: ");
-int max = Convert.ToInt32(Console.ReadLine());
+int[] InArray = inputArray();
+int[] Array = CreateArray(InArray[0], InArray[1], InArray[2]);
+int count = 0;
+for (int i = 0; i < Array.Length; i++){
+    if (Array[i] % 2 == 0 ){
+        count ++;
+    }
+}
+Console.WriteLine("Количество чётных чисел в массиве:");
+ShowArray(Array);
+Console.Write($" -> {count}");
 
-int[] myRandomArray = CreateArray(number, min, max);
 
-Console.Write($"Сгенерированный массив из {number} элементов -> [");
-ShowArray(myRandomArray);
+
+
+// Console.Clear();
+// Console.Write("Введите количество элементов в массиве: ");
+// int number = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите диапазон для создания массива в пределах от 100 до 1000");
+// Console.Write("Введите начало диапазона: ");
+// int min = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите конец диапазона: ");
+// int max = Convert.ToInt32(Console.ReadLine());
