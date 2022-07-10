@@ -345,14 +345,66 @@
 
 // Задача 2. Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях
 
-int[] CreateArray(int N, int start, int end){
-    int[] RandomArray = new int[N];
+// int[] CreateArray(int N, int start, int end){
+//     int[] RandomArray = new int[N];
+//     for (int i = 0; i < RandomArray.Length; i++){
+//         RandomArray[i] = new Random().Next(start, end + 1);
+//     }
+//     return RandomArray;
+// }
+// void ShowArray(int[] Array){
+//     Console.Write("[");
+//     for (int i = 0; i < Array.Length; i++){
+//         Console.Write(Array[i]);
+//         if (i < Array.Length - 1){
+//             Console.Write(", ");
+//         }
+//     }
+//     Console.Write("]");
+// }
+// int[] InputArray(){
+//     Console.Clear();
+//     Console.Write("Введите количество элементов в массиве: ");
+//     int number = Convert.ToInt32(Console.ReadLine());
+//     while (number < 1){
+//         Console.WriteLine("Массив пустой!");
+//         Console.Write("Введите количество элементов в массиве: ");
+//         number = Convert.ToInt32(Console.ReadLine());
+//     }
+//     Console.WriteLine("Задайте значения диапазона для создания массива:");
+//     Console.Write("1. Введите начальное значение диапазона: ");
+//     int min = Convert.ToInt32(Console.ReadLine());
+//     Console.Write("2. Введите конечное значение диапазона: ");
+//     int max = Convert.ToInt32(Console.ReadLine());
+//     while (max < min){
+//         Console.WriteLine("Конечное значение диапазона не может быть меньше начального значения!");
+//         Console.Write("2. Введите конечное значение диапазона: ");
+//         max = Convert.ToInt32(Console.ReadLine());
+//     }
+//     int[] InArray = {number, min, max};
+//     return InArray;
+// }
+// int[] InArray = InputArray();
+// int[] RandomArray = CreateArray(InArray[0], InArray[1], InArray[2]);
+// int sumOdd = 0;
+// for (int i = 0; i < RandomArray.Length; i+=2){
+//     sumOdd = sumOdd + RandomArray[i];
+// }
+// Console.WriteLine("Cумма элементов массива, стоящих на нечётных позициях:");
+// ShowArray(RandomArray);
+// Console.WriteLine($" -> {sumOdd}");
+
+
+// Задача 3. Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементами массива
+
+double[] CreateArray(int N, int start, int end){
+    double[] RandomArray = new double[N];
     for (int i = 0; i < RandomArray.Length; i++){
         RandomArray[i] = new Random().Next(start, end + 1);
     }
     return RandomArray;
 }
-void ShowArray(int[] Array){
+void ShowArray(double[] Array){
     Console.Write("[");
     for (int i = 0; i < Array.Length; i++){
         Console.Write(Array[i]);
@@ -366,8 +418,8 @@ int[] InputArray(){
     Console.Clear();
     Console.Write("Введите количество элементов в массиве: ");
     int number = Convert.ToInt32(Console.ReadLine());
-    while (number < 1){
-        Console.WriteLine("Массив пустой!");
+    while (number < 2){
+        Console.WriteLine("Необходимо минимум 2 элемента в массиве для решения данной задачи!");
         Console.Write("Введите количество элементов в массиве: ");
         number = Convert.ToInt32(Console.ReadLine());
     }
@@ -385,11 +437,14 @@ int[] InputArray(){
     return InArray;
 }
 int[] InArray = InputArray();
-int[] RandomArray = CreateArray(InArray[0], InArray[1], InArray[2]);
-int sumOdd = 0;
-for (int i = 0; i < RandomArray.Length; i+=2){
-    sumOdd = sumOdd + RandomArray[i];
+double[] RandomArray = CreateArray(InArray[0], InArray[1], InArray[2]);
+double minArray = RandomArray[0];
+double maxArray = RandomArray[0];
+for (int i = 0; i < RandomArray.Length; i++){
+    if (RandomArray[i] > maxArray) maxArray = RandomArray[i];
+    if (RandomArray[i] < minArray) minArray = RandomArray[i];
 }
-Console.WriteLine("Cумма элементов массива, стоящих на нечётных позициях:");
+double DifMaxMin = maxArray - minArray;
+Console.WriteLine("Разница между максимальным и минимальным значениями элементов массива:");
 ShowArray(RandomArray);
-Console.WriteLine($" -> {sumOdd}");
+Console.WriteLine($" -> {DifMaxMin}");
