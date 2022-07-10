@@ -283,26 +283,74 @@
 
 // ДЗ-5
 
-// Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
-// [345, 897, 568, 234] -> 2
-
-// Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
-// [3, 7, 23, 12] -> 19
-// [-4, -6, 89, 6] -> 0
-
-// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
-// [3 7 22 2 78] -> 76
-
-
 // Задача 1. Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
-// [345, 897, 568, 234] -> 2
+
+// int[] CreateArray(int N, int start, int end){
+//     int[] Array = new int[N];
+//     for (int i = 0; i < Array.Length; i++){
+//         Array[i] = new Random().Next(start, end + 1);
+//     }
+//     return Array;
+// }
+// void ShowArray(int[] Array){
+//     Console.Write("[");
+//     for (int i = 0; i < Array.Length; i++){
+//         Console.Write(Array[i]);
+//         if (i < Array.Length - 1){
+//             Console.Write(", ");
+//         }
+//     }
+//     Console.Write("]");
+// }
+// int[] inputArray(){
+//     Console.Clear();
+//     Console.Write("Введите количество элементов в массиве: ");
+//     int number = Convert.ToInt32(Console.ReadLine());
+//     while (number < 1){
+//         Console.WriteLine($"Массив пустой!");
+//         Console.Write("Введите количество элементов в массиве: ");
+//         number = Convert.ToInt32(Console.ReadLine());
+//     }
+//     Console.WriteLine("Введите диапазон для создания массива в пределах от 100 до 999");
+//     Console.Write("Введите начало диапазона: ");
+//     int min = Convert.ToInt32(Console.ReadLine());
+//     while (min < 100 || min > 999){
+//         Console.WriteLine("Ошибка! Диапазон для создания массива должен быть в пределах от 100 до 999");
+//         Console.Write("Введите начало диапазона: ");
+//         min = Convert.ToInt32(Console.ReadLine());
+//     }
+//     Console.Write("Введите конец диапазона: ");
+//     int max = Convert.ToInt32(Console.ReadLine());
+//     while (max < 100 || max > 999 || max < min){
+//         Console.WriteLine("Ошибка! Диапазон для создания массива должен быть в пределах от 100 до 999. Значение конца диапазона не должно быть меньше его начала!");
+//         Console.Write("Введите конец диапазона: ");
+//         max = Convert.ToInt32(Console.ReadLine());
+//     }
+//     int[] ArrayIn = {number, min, max};
+//     return ArrayIn;
+// }
+
+// int[] ArrayIn = inputArray();
+// int[] Array = CreateArray(ArrayIn[0], ArrayIn[1], ArrayIn[2]);
+// int count = 0;
+// for (int i = 0; i < Array.Length; i++){
+//     if (Array[i] % 2 == 0 ){
+//         count ++;
+//     }
+// }
+// Console.WriteLine("Количество чётных чисел в массиве:");
+// ShowArray(Array);
+// Console.Write($" -> {count}");
+
+
+// Задача 2. Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях
 
 int[] CreateArray(int N, int start, int end){
-    int[] Array = new int[N];
-    for (int i = 0; i < Array.Length; i++){
-        Array[i] = new Random().Next(start, end + 1);
+    int[] RandomArray = new int[N];
+    for (int i = 0; i < RandomArray.Length; i++){
+        RandomArray[i] = new Random().Next(start, end + 1);
     }
-    return Array;
+    return RandomArray;
 }
 void ShowArray(int[] Array){
     Console.Write("[");
@@ -314,39 +362,34 @@ void ShowArray(int[] Array){
     }
     Console.Write("]");
 }
-int[] inputArray(){
+int[] InputArray(){
     Console.Clear();
     Console.Write("Введите количество элементов в массиве: ");
     int number = Convert.ToInt32(Console.ReadLine());
-    Console.WriteLine("Введите диапазон для создания массива в пределах от 100 до 999");
-    Console.Write("Введите начало диапазона: ");
-    int min = Convert.ToInt32(Console.ReadLine());
-    if (min < 100 || min > 999){
-        Console.WriteLine("Ошибка! Диапазон для создания массива должен быть в пределах от 100 до 999");
-        Console.Write("Введите начало диапазона: ");
-        min = Convert.ToInt32(Console.ReadLine());
+    while (number < 1){
+        Console.WriteLine("Массив пустой!");
+        Console.Write("Введите количество элементов в массиве: ");
+        number = Convert.ToInt32(Console.ReadLine());
     }
-    Console.Write("Введите конец диапазона: ");
+    Console.WriteLine("Задайте значения диапазона для создания массива:");
+    Console.Write("1. Введите начальное значение диапазона: ");
+    int min = Convert.ToInt32(Console.ReadLine());
+    Console.Write("2. Введите конечное значение диапазона: ");
     int max = Convert.ToInt32(Console.ReadLine());
-    if (max < 100 || max > 999 || max < min){
-        Console.WriteLine("Ошибка! Диапазон для создания массива должен быть в пределах от 100 до 999. Значение конца диапазона не должно быть меньше его начала!");
-        Console.Write("Введите конец диапазона: ");
+    while (max < min){
+        Console.WriteLine("Конечное значение диапазона не может быть меньше начального значения!");
+        Console.Write("2. Введите конечное значение диапазона: ");
         max = Convert.ToInt32(Console.ReadLine());
     }
-    int[] ArrayIn = {number, min, max};
-    return ArrayIn;
+    int[] InArray = {number, min, max};
+    return InArray;
 }
-
-int[] InArray = inputArray();
-int[] Array = CreateArray(InArray[0], InArray[1], InArray[2]);
-int count = 0;
-for (int i = 0; i < Array.Length; i++){
-    if (Array[i] % 2 == 0 ){
-        count ++;
-    }
+int[] InArray = InputArray();
+int[] RandomArray = CreateArray(InArray[0], InArray[1], InArray[2]);
+int sumOdd = 0;
+for (int i = 0; i < RandomArray.Length; i+=2){
+    sumOdd = sumOdd + RandomArray[i];
 }
-Console.WriteLine("Количество чётных чисел в массиве:");
-ShowArray(Array);
-Console.Write($" -> {count}");
-
-
+Console.WriteLine("Cумма элементов массива, стоящих на нечётных позициях:");
+ShowArray(RandomArray);
+Console.WriteLine($" -> {sumOdd}");
