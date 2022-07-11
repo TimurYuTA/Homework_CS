@@ -307,7 +307,7 @@
 //     Console.Write("Введите количество элементов в массиве: ");
 //     int number = Convert.ToInt32(Console.ReadLine());
 //     while (number < 1){
-//         Console.WriteLine($"Массив пустой!");
+//         Console.WriteLine("Массив пустой!");
 //         Console.Write("Введите количество элементов в массиве: ");
 //         number = Convert.ToInt32(Console.ReadLine());
 //     }
@@ -400,7 +400,7 @@
 double[] CreateArray(int N, int start, int end){
     double[] RandomArray = new double[N];
     for (int i = 0; i < RandomArray.Length; i++){
-        RandomArray[i] = new Random().Next(start, end + 1);
+        RandomArray[i] = Math.Round(new Random().Next(start, end) + new Random().NextDouble(), 1);
     }
     return RandomArray;
 }
@@ -418,8 +418,8 @@ int[] InputArray(){
     Console.Clear();
     Console.Write("Введите количество элементов в массиве: ");
     int number = Convert.ToInt32(Console.ReadLine());
-    while (number < 2){
-        Console.WriteLine("Необходимо минимум 2 элемента в массиве для решения данной задачи!");
+    while (number < 1){
+        Console.WriteLine("Массив пустой!");
         Console.Write("Введите количество элементов в массиве: ");
         number = Convert.ToInt32(Console.ReadLine());
     }
@@ -428,12 +428,20 @@ int[] InputArray(){
     int min = Convert.ToInt32(Console.ReadLine());
     Console.Write("2. Введите конечное значение диапазона: ");
     int max = Convert.ToInt32(Console.ReadLine());
-    while (max < min){
-        Console.WriteLine("Конечное значение диапазона не может быть меньше начального значения!");
+    while (max == min){
+        Console.WriteLine("Диапазон не может быть равен нулю для решения данной задачи!");
+        Console.Write("1. Введите начальное значение диапазона: ");
+        min = Convert.ToInt32(Console.ReadLine());
         Console.Write("2. Введите конечное значение диапазона: ");
         max = Convert.ToInt32(Console.ReadLine());
     }
-    int[] InArray = {number, min, max};
+    int A = min;
+    int B = max;
+    if (max < min){
+        A = max;
+        B = min;
+    }
+    int[] InArray = {number, A, B};
     return InArray;
 }
 int[] InArray = InputArray();
