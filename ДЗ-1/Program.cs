@@ -397,62 +397,113 @@
 
 // Задача 3. Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементами массива
 
-double[] CreateArray(int N, int start, int end){
-    double[] RandomArray = new double[N];
-    for (int i = 0; i < RandomArray.Length; i++){
-        RandomArray[i] = Math.Round(new Random().Next(start, end) + new Random().NextDouble(), 1);
-    }
-    return RandomArray;
-}
-void ShowArray(double[] Array){
-    Console.Write("[");
+// double[] CreateArray(int N, int start, int end){
+//     double[] RandomArray = new double[N];
+//     for (int i = 0; i < RandomArray.Length; i++){
+//         RandomArray[i] = Math.Round(new Random().Next(start, end) + new Random().NextDouble(), 1);
+//     }
+//     return RandomArray;
+// }
+// void ShowArray(double[] Array){
+//     Console.Write("[");
+//     for (int i = 0; i < Array.Length; i++){
+//         Console.Write(Array[i]);
+//         if (i < Array.Length - 1){
+//             Console.Write(", ");
+//         }
+//     }
+//     Console.Write("]");
+// }
+// int[] InputArray(){
+//     Console.Clear();
+//     Console.Write("Введите количество элементов в массиве: ");
+//     int number = Convert.ToInt32(Console.ReadLine());
+//     while (number < 1){
+//         Console.WriteLine("Массив пустой!");
+//         Console.Write("Введите количество элементов в массиве: ");
+//         number = Convert.ToInt32(Console.ReadLine());
+//     }
+//     Console.WriteLine("Задайте значения диапазона для создания массива:");
+//     Console.Write("1. Введите начальное значение диапазона: ");
+//     int min = Convert.ToInt32(Console.ReadLine());
+//     Console.Write("2. Введите конечное значение диапазона: ");
+//     int max = Convert.ToInt32(Console.ReadLine());
+//     while (max == min){
+//         Console.WriteLine("Диапазон не может быть равен нулю для решения данной задачи!");
+//         Console.Write("1. Введите начальное значение диапазона: ");
+//         min = Convert.ToInt32(Console.ReadLine());
+//         Console.Write("2. Введите конечное значение диапазона: ");
+//         max = Convert.ToInt32(Console.ReadLine());
+//     }
+//     int A = min;
+//     int B = max;
+//     if (max < min){
+//         A = max;
+//         B = min;
+//     }
+//     int[] InArray = {number, A, B};
+//     return InArray;
+// }
+// int[] InArray = InputArray();
+// double[] RandomArray = CreateArray(InArray[0], InArray[1], InArray[2]);
+// double minArray = RandomArray[0];
+// double maxArray = RandomArray[0];
+// for (int i = 0; i < RandomArray.Length; i++){
+//     if (RandomArray[i] > maxArray) maxArray = RandomArray[i];
+//     if (RandomArray[i] < minArray) minArray = RandomArray[i];
+// }
+// double DifMaxMin = maxArray - minArray;
+// Console.WriteLine("Разница между максимальным и минимальным значениями элементов массива:");
+// ShowArray(RandomArray);
+// Console.WriteLine($" -> {DifMaxMin}");
+
+
+
+// ДЗ-6
+
+// Задача 1. Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+
+void ShowArray(int[] Array){     // метод вывода массива в консоль
     for (int i = 0; i < Array.Length; i++){
         Console.Write(Array[i]);
         if (i < Array.Length - 1){
             Console.Write(", ");
         }
     }
-    Console.Write("]");
 }
-int[] InputArray(){
-    Console.Clear();
-    Console.Write("Введите количество элементов в массиве: ");
-    int number = Convert.ToInt32(Console.ReadLine());
-    while (number < 1){
-        Console.WriteLine("Массив пустой!");
-        Console.Write("Введите количество элементов в массиве: ");
-        number = Convert.ToInt32(Console.ReadLine());
+int[] InArray(){     // метод ввода данных с консоли
+    int M = 0;
+    while (M < 1){
+        Console.Write("Введите количество сравниваемых чисел: ");
+        M = Convert.ToInt32(Console.ReadLine());
+        if (M < 1){
+            Console.WriteLine("Количество не можен быть отрицательным или равным нулю!");
+        }
     }
-    Console.WriteLine("Задайте значения диапазона для создания массива:");
-    Console.Write("1. Введите начальное значение диапазона: ");
-    int min = Convert.ToInt32(Console.ReadLine());
-    Console.Write("2. Введите конечное значение диапазона: ");
-    int max = Convert.ToInt32(Console.ReadLine());
-    while (max == min){
-        Console.WriteLine("Диапазон не может быть равен нулю для решения данной задачи!");
-        Console.Write("1. Введите начальное значение диапазона: ");
-        min = Convert.ToInt32(Console.ReadLine());
-        Console.Write("2. Введите конечное значение диапазона: ");
-        max = Convert.ToInt32(Console.ReadLine());
+    int[] CreateArray = new int[M];
+    int count = 1;
+    for (int i = 0; i < CreateArray.Length; i++){
+        Console.Write($"Введите {count}-е число: ");
+        CreateArray[i] = Convert.ToInt32(Console.ReadLine());
+        count++;
     }
-    int A = min;
-    int B = max;
-    if (max < min){
-        A = max;
-        B = min;
-    }
-    int[] InArray = {number, A, B};
-    return InArray;
+    return CreateArray;
 }
-int[] InArray = InputArray();
-double[] RandomArray = CreateArray(InArray[0], InArray[1], InArray[2]);
-double minArray = RandomArray[0];
-double maxArray = RandomArray[0];
-for (int i = 0; i < RandomArray.Length; i++){
-    if (RandomArray[i] > maxArray) maxArray = RandomArray[i];
-    if (RandomArray[i] < minArray) minArray = RandomArray[i];
+
+int posNum(int[] Array){     // метод счёта количества чисел больше 0
+    int countI = 0;
+    for (int i = 0; i < Array.Length; i++){
+        if (Array[i] > 0) countI++;
+    }
+    return countI;
 }
-double DifMaxMin = maxArray - minArray;
-Console.WriteLine("Разница между максимальным и минимальным значениями элементов массива:");
-ShowArray(RandomArray);
-Console.WriteLine($" -> {DifMaxMin}");
+
+Console.Clear();
+int[] InputArray = InArray();
+Console.WriteLine("\nКоличество введённых чисел больше нуля:");
+ShowArray(InputArray);
+Console.WriteLine($" -> {posNum(InputArray)}\n");
+
+
+// Задача 2: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
+// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; 5,5)
