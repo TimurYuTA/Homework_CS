@@ -463,47 +463,73 @@
 
 // Задача 1. Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
 
-void ShowArray(int[] Array){     // метод вывода массива в консоль
-    for (int i = 0; i < Array.Length; i++){
-        Console.Write(Array[i]);
-        if (i < Array.Length - 1){
-            Console.Write(", ");
-        }
-    }
-}
-int[] InArray(){     // метод ввода данных с консоли
-    int M = 0;
-    while (M < 1){
-        Console.Write("Введите количество сравниваемых чисел: ");
-        M = Convert.ToInt32(Console.ReadLine());
-        if (M < 1){
-            Console.WriteLine("Количество не можен быть отрицательным или равным нулю!");
-        }
-    }
-    int[] CreateArray = new int[M];
-    int count = 1;
-    for (int i = 0; i < CreateArray.Length; i++){
-        Console.Write($"Введите {count}-е число: ");
-        CreateArray[i] = Convert.ToInt32(Console.ReadLine());
-        count++;
-    }
-    return CreateArray;
-}
+// void ShowArray(int[] Array){     // метод вывода массива в консоль
+//     for (int i = 0; i < Array.Length; i++){
+//         Console.Write(Array[i]);
+//         if (i < Array.Length - 1){
+//             Console.Write(", ");
+//         }
+//     }
+// }
+// int[] InArray(){     // метод ввода данных с консоли
+//     int M = 0;
+//     while (M < 1){
+//         Console.Write("Введите количество сравниваемых чисел: ");
+//         M = Convert.ToInt32(Console.ReadLine());
+//         if (M < 1){
+//             Console.WriteLine("Количество не можен быть отрицательным или равным нулю!");
+//         }
+//     }
+//     int[] CreateArray = new int[M];
+//     int count = 1;
+//     for (int i = 0; i < CreateArray.Length; i++){
+//         Console.Write($"Введите {count}-е число: ");
+//         CreateArray[i] = Convert.ToInt32(Console.ReadLine());
+//         count++;
+//     }
+//     return CreateArray;
+// }
 
-int posNum(int[] Array){     // метод счёта количества чисел больше 0
-    int countI = 0;
-    for (int i = 0; i < Array.Length; i++){
-        if (Array[i] > 0) countI++;
-    }
-    return countI;
-}
+// int posNum(int[] Array){     // метод счёта количества чисел больше 0
+//     int countI = 0;
+//     for (int i = 0; i < Array.Length; i++){
+//         if (Array[i] > 0) countI++;
+//     }
+//     return countI;
+// }
 
-Console.Clear();
-int[] InputArray = InArray();
-Console.WriteLine("\nКоличество введённых чисел больше нуля:");
-ShowArray(InputArray);
-Console.WriteLine($" -> {posNum(InputArray)}\n");
+// Console.Clear();
+// int[] InputArray = InArray();
+// Console.WriteLine("\nКоличество введённых чисел больше нуля:");
+// ShowArray(InputArray);
+// Console.WriteLine($" -> {posNum(InputArray)}\n");
 
 
-// Задача 2: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
-// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; 5,5)
+// Задача 2. Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
+
+// Console.Clear();
+// Console.WriteLine("Введите значения k1 и b1 для прямой, заданной уравнением y = k1 * x + b1:");
+// Console.Write("k1 = ");
+// double k1 = Convert.ToDouble(Console.ReadLine());
+// Console.Write("b1 = ");
+// double b1 = Convert.ToDouble(Console.ReadLine());
+// Console.WriteLine("Введите значения k2 и b2 для прямой, заданной уравнением y = k2 * x + b2:");
+// Console.Write("k2 = ");
+// double k2 = Convert.ToDouble(Console.ReadLine());
+// Console.Write("b2 = ");
+// double b2 = Convert.ToDouble(Console.ReadLine());
+
+// if (k1 == k2){
+//     if (b1 == b2){
+//         Console.WriteLine("\nТочек пересечения бесконечно много - пямые совпадают!\n");
+//     }
+//     else{
+//         Console.WriteLine("\nТочек пересечения нет - пямые параллельны!\n");
+//     }
+// }
+// else{
+//     Console.WriteLine("\nКоординаты точки пересечения двух прямых при заданных значениях:\n");
+//     double x = (b1 - b2)/(k2 - k1);
+//     double y = k1 * x + b1;
+//     Console.WriteLine($"k1 = {k1}, b1 = {b1}, k2 = {k2}, b2 = {b2} -> ({x}; {y})\n");
+// }
