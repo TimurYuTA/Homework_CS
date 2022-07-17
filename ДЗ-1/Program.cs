@@ -533,3 +533,90 @@
 //     double y = k1 * x + b1;
 //     Console.WriteLine($"k1 = {k1}, b1 = {b1}, k2 = {k2}, b2 = {b2} -> ({x}; {y})\n");
 // }
+
+
+// ДЗ-7
+
+// Задача 1. Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
+
+// double[,] CreateArray(int rows, int columns){
+//     double[,] RandomArray = new double [rows, columns];
+//     for (int i = 0; i < rows; i++){
+//         for (int j = 0; j < columns; j++){
+//             RandomArray[i, j] = new Random().NextDouble()*10;
+//         }
+//     }
+//     return RandomArray;
+// }
+// void ShowArray(double[,] Array){
+//     for (int i = 0; i < Array.GetLength(0); i++){
+//         for (int j = 0; j < Array.GetLength(1); j++){
+//             Console.Write($"{Array[i, j]:f1} ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// Console.Clear();
+// Console.Write("Введите количество строк в массиве: ");
+// int m = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите количество столбцов в массиве: ");
+// int n = Convert.ToInt32(Console.ReadLine());
+
+// double[,] myArray = CreateArray(m, n);
+// ShowArray(myArray);
+
+
+// Задача 2. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
+
+// int[,] CreateArray(int rows, int columns, int start, int end){
+//     int[,] RandomArray = new int [rows, columns];
+//     for (int i = 0; i < rows; i++){
+//         for (int j = 0; j < columns; j++){
+//             RandomArray[i, j] = new Random().Next(start, end);
+//         }
+//     }
+//     return RandomArray;
+// }
+// void ShowArray(int[,] Array){
+//     for (int i = 0; i < Array.GetLength(0); i++){
+//         for (int j = 0; j < Array.GetLength(1); j++){
+//             Console.Write($"{Array[i, j]} ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// Console.Clear();
+// Console.Write("Введите количество строк в массиве: ");
+// int m = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите количество столбцов в массиве: ");
+// int n = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите значение начала диапазона для создания массива: ");
+// int min = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите значение конца диапазона для создания массива: ");
+// int max = Convert.ToInt32(Console.ReadLine());
+
+// Console.Write("\nВведите индекс строки элемента в массиве: ");
+// int i = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите индекс столбца элемента в массиве: ");
+// int j = Convert.ToInt32(Console.ReadLine());
+
+// int[,] myArray = CreateArray(m, n, min, max);
+// ShowArray(myArray);
+
+// if (i >= m || j >= n){
+//     Console.WriteLine("\nТакого элемента нет\n");
+// }
+// else{
+//     Console.WriteLine($"\nЭлемент на позиции [{i}, {j}] -> {myArray[i, j]}\n");
+// }
+
+
+// Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+
