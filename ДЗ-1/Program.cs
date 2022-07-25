@@ -887,10 +887,65 @@
 
 
 // Задача 5. Заполните спирально массив 4 на 4.
-// Например, на выходе получается вот такой массив:
-// 1 2 3 4
-// 12 13 14 5
-// 11 16 15 6
-// 10 9 8 7
 
+void ShowArray(int[,] Array){
+    for (int i = 0; i < Array.GetLength(0); i++){
+        for (int j = 0; j < Array.GetLength(1); j++){
+            Console.Write($"{Array[i, j]}\t");
+        }
+        Console.WriteLine();
+    }
+    Console.WriteLine("\n");
+}
+Console.Clear();
+Console.WriteLine("Количество строк в массиве: 4");
+int Y = 4;
+Console.WriteLine("Количество столбцов в массиве: 4");
+int X = 4;
+int start = 10;
+int end = 99;
+
+int[,] SnakeArray = new int[Y, X];
+Console.WriteLine("\nЗаполнение сверху вправо ->:\n");
+for (int i = 0; i < 1; i++){
+    for (int j = 0; j < SnakeArray.GetLength(1); j++){
+        SnakeArray[i, j] = new Random().Next(start, end + 1);
+        ShowArray(SnakeArray);
+    }
+}
+Console.WriteLine("Заполнение справа вниз:\n");
+for (int i = 1; i < SnakeArray.GetLength(0); i++){
+    for (int j = 3; j < SnakeArray.GetLength(1); j++){
+        SnakeArray[i, j] = new Random().Next(start, end + 1);
+        ShowArray(SnakeArray);
+    }
+}
+Console.WriteLine("Заполнение справа налево <-:\n");
+for (int i = 3; i < SnakeArray.GetLength(0); i++){
+    for (int j = 2; j >= 0; j--){
+        SnakeArray[i, j] = new Random().Next(start, end + 1);
+        ShowArray(SnakeArray);
+    }
+}
+Console.WriteLine("Заполнение слева вверх:\n");
+for (int i = 2; i > 0; i--){
+    for (int j = 0; j < 1; j++){
+        SnakeArray[i, j] = new Random().Next(start, end + 1);
+        ShowArray(SnakeArray);
+    }
+}
+Console.WriteLine("Заполнение центра слева направо ->:\n");
+for (int i = 1; i < 2; i++){
+    for (int j = 1; j < 3; j++){
+        SnakeArray[i, j] = new Random().Next(start, end + 1);
+        ShowArray(SnakeArray);
+    }
+}
+Console.WriteLine("Заполнение центра справа налево <-:\n");
+for (int i = 2; i < 3; i++){
+    for (int j = 2; j > 0; j--){
+        SnakeArray[i, j] = new Random().Next(start, end + 1);
+        ShowArray(SnakeArray);
+    }
+}
 
