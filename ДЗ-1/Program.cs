@@ -888,64 +888,167 @@
 
 // Задача 5. Заполните спирально массив 4 на 4.
 
-void ShowArray(int[,] Array){
-    for (int i = 0; i < Array.GetLength(0); i++){
-        for (int j = 0; j < Array.GetLength(1); j++){
-            Console.Write($"{Array[i, j]}\t");
-        }
-        Console.WriteLine();
+// void ShowArray(int[,] Array){
+//     for (int i = 0; i < Array.GetLength(0); i++){
+//         for (int j = 0; j < Array.GetLength(1); j++){
+//             Console.Write($"{Array[i, j]}\t");
+//         }
+//         Console.WriteLine();
+//     }
+//     Console.WriteLine("\n");
+// }
+// Console.Clear();
+// Console.WriteLine("Количество строк в массиве: 4");
+// int Y = 4;
+// Console.WriteLine("Количество столбцов в массиве: 4");
+// int X = 4;
+// int start = 10;
+// int end = 99;
+
+// int[,] SnakeArray = new int[Y, X];
+// Console.WriteLine("\nЗаполнение сверху вправо ->:\n");
+// for (int i = 0; i < 1; i++){
+//     for (int j = 0; j < SnakeArray.GetLength(1); j++){
+//         SnakeArray[i, j] = new Random().Next(start, end + 1);
+//         ShowArray(SnakeArray);
+//     }
+// }
+// Console.WriteLine("Заполнение справа вниз:\n");
+// for (int i = 1; i < SnakeArray.GetLength(0); i++){
+//     for (int j = 3; j < SnakeArray.GetLength(1); j++){
+//         SnakeArray[i, j] = new Random().Next(start, end + 1);
+//         ShowArray(SnakeArray);
+//     }
+// }
+// Console.WriteLine("Заполнение справа налево <-:\n");
+// for (int i = 3; i < SnakeArray.GetLength(0); i++){
+//     for (int j = 2; j >= 0; j--){
+//         SnakeArray[i, j] = new Random().Next(start, end + 1);
+//         ShowArray(SnakeArray);
+//     }
+// }
+// Console.WriteLine("Заполнение слева вверх:\n");
+// for (int i = 2; i > 0; i--){
+//     for (int j = 0; j < 1; j++){
+//         SnakeArray[i, j] = new Random().Next(start, end + 1);
+//         ShowArray(SnakeArray);
+//     }
+// }
+// Console.WriteLine("Заполнение центра слева направо ->:\n");
+// for (int i = 1; i < 2; i++){
+//     for (int j = 1; j < 3; j++){
+//         SnakeArray[i, j] = new Random().Next(start, end + 1);
+//         ShowArray(SnakeArray);
+//     }
+// }
+// Console.WriteLine("Заполнение центра справа налево <-:\n");
+// for (int i = 2; i < 3; i++){
+//     for (int j = 2; j > 0; j--){
+//         SnakeArray[i, j] = new Random().Next(start, end + 1);
+//         ShowArray(SnakeArray);
+//     }
+// }
+
+
+
+// ДЗ-9
+
+// Задача 1. Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N
+
+// Console.Clear();
+// Console.Write("Введите число M: ");
+// int M = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите число N: ");
+// int N = Convert.ToInt32(Console.ReadLine());
+
+// if (N < M){
+//     int X = N;
+//     N = M;
+//     M = X; 
+// }
+// if (N < 1){
+//     Console.WriteLine($"\nВ промежутке от {M} до {N} натуральных чисел нет!\n");
+//     return;
+// }
+// Console.Write($"\nНатуральные числа в промежутке от {M} до {N} -> ");
+// if (M < 1){
+//     for (int i = 1; i <= N; i++){
+//         Console.Write(i);
+//         if (i < N){
+//             Console.Write(", ");
+//         }
+//     }
+// }
+// else{
+//     for (int i = M; i <= N; i++){
+//         Console.Write(i);
+//         if (i < N){
+//             Console.Write(", ");
+//         }
+//     }
+// }
+// Console.WriteLine("\n");
+
+
+// Задача 2. Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных чисел в промежутке от M до N
+
+// Console.Clear();
+// Console.Write("Введите число M: ");
+// int M = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите число N: ");
+// int N = Convert.ToInt32(Console.ReadLine());
+// int sum = 0;
+
+// if (N < M){
+//     int X = N;
+//     N = M;
+//     M = X; 
+// }
+// if (N < 1){
+//     Console.WriteLine($"\nВ промежутке от {M} до {N} натуральных чисел нет!\n");
+//     return;
+// }
+// Console.Write($"\nСумма натуральных чисел в промежутке от {M} до {N} -> ");
+// if (M < 1){
+//     for (int i = 1; i <= N; i++){
+//         sum = sum + i;
+//     }
+// }
+// else{
+//     for (int i = M; i <= N; i++){
+//         sum = sum + i;
+//     }
+// }
+// Console.WriteLine($"{sum}\n");
+
+
+// Задача 3. Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
+
+int A(int m, int n){
+    if (m == 0){
+        return n + 1;
     }
-    Console.WriteLine("\n");
+    if (m > 0 && n == 0){
+        return A(m - 1, 1);
+    }
+    else{
+        return A(m - 1, A(m, n - 1));
+    }
 }
+int InputNumber(){
+    int number = Convert.ToInt32(Console.ReadLine());
+    while (number < 0){
+        Console.Write("Введите неотрицательное число: ");
+        number = Convert.ToInt32(Console.ReadLine());
+    }
+    return number;
+}
+
 Console.Clear();
-Console.WriteLine("Количество строк в массиве: 4");
-int Y = 4;
-Console.WriteLine("Количество столбцов в массиве: 4");
-int X = 4;
-int start = 10;
-int end = 99;
+Console.Write("Введите число m: ");
+int m = InputNumber();
+Console.Write("Введите число n: ");
+int n = InputNumber();
 
-int[,] SnakeArray = new int[Y, X];
-Console.WriteLine("\nЗаполнение сверху вправо ->:\n");
-for (int i = 0; i < 1; i++){
-    for (int j = 0; j < SnakeArray.GetLength(1); j++){
-        SnakeArray[i, j] = new Random().Next(start, end + 1);
-        ShowArray(SnakeArray);
-    }
-}
-Console.WriteLine("Заполнение справа вниз:\n");
-for (int i = 1; i < SnakeArray.GetLength(0); i++){
-    for (int j = 3; j < SnakeArray.GetLength(1); j++){
-        SnakeArray[i, j] = new Random().Next(start, end + 1);
-        ShowArray(SnakeArray);
-    }
-}
-Console.WriteLine("Заполнение справа налево <-:\n");
-for (int i = 3; i < SnakeArray.GetLength(0); i++){
-    for (int j = 2; j >= 0; j--){
-        SnakeArray[i, j] = new Random().Next(start, end + 1);
-        ShowArray(SnakeArray);
-    }
-}
-Console.WriteLine("Заполнение слева вверх:\n");
-for (int i = 2; i > 0; i--){
-    for (int j = 0; j < 1; j++){
-        SnakeArray[i, j] = new Random().Next(start, end + 1);
-        ShowArray(SnakeArray);
-    }
-}
-Console.WriteLine("Заполнение центра слева направо ->:\n");
-for (int i = 1; i < 2; i++){
-    for (int j = 1; j < 3; j++){
-        SnakeArray[i, j] = new Random().Next(start, end + 1);
-        ShowArray(SnakeArray);
-    }
-}
-Console.WriteLine("Заполнение центра справа налево <-:\n");
-for (int i = 2; i < 3; i++){
-    for (int j = 2; j > 0; j--){
-        SnakeArray[i, j] = new Random().Next(start, end + 1);
-        ShowArray(SnakeArray);
-    }
-}
-
+int AckermanFunction = A(m, n);
+Console.WriteLine($"\nФункция Аккермана A({m}, {n}) = {AckermanFunction}\n");
